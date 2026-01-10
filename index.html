@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFC Number Sender | Professional NFC Management</title>
+  <meta name="description"
+    content="Efficiently manage and transmit numbers to NFC-enabled devices with our professional platform." />
+
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Load CryptoJS FIRST, before script.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- WUUNU SNIPPET - DON'T CHANGE THIS (START) -->
+  <script type="module">
+    if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.DEV === true) {
+      if (!document.getElementById('wuunu-widget-script')) {
+        window.__WUUNU_WS__ = "http://127.0.0.1:52826/";
+        const s = document.createElement('script');
+        s.id = 'wuunu-widget-script';
+        s.src = "https://cdn.jsdelivr.net/npm/@wuunu/widget@0.1?cacheParam=605";
+        s.defer = true;
+        s.crossOrigin = 'anonymous';
+        document.head.appendChild(s);
+      }
+    }
+  </script>
+  <!-- WUUNU SNIPPET - DON'T CHANGE THIS (END) -->
+
+<body>
+  <!-- Animated Background -->
+  <div class="animated-bg"></div>
+
+  <header class="main-header">
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo-icon">📡</div>
+        <h1>NFC Number Sender</h1>
+      </div>
+      <nav class="main-nav">
+        <a href="admin-login.html" class="admin-link">
+          <span>Admin Portal</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-image-wrapper">
+            <img src="./NFC.png" alt="NFC interaction illustration" class="hero-image" />
+            <div class="image-glow"></div>
+          </div>
+          <div class="hero-text">
+            <h2 class="hero-title">Send Number to NFC Device</h2>
+            <p class="hero-description">Quickly save and transmit the latest customer number to your NFC-enabled
+              receiver with seamless integration.</p>
+            <div class="feature-badges">
+              <span class="badge">⚡ Fast</span>
+              <span class="badge">🔒 Secure</span>
+              <span class="badge">📱 Compatible</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Form Section -->
+      <section class="form-section">
+        <div class="form-card">
+          <div class="form-header">
+            <h3>Enter Number</h3>
+            <p>Type the number you want to send to your NFC device</p>
+          </div>
+
+          <div class="form-group">
+            <div class="input-wrapper">
+              <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2 3C2 2.44772 2.44772 2 3 2H5.15287C5.64171 2 6.0589 2.35341 6.13927 2.8356L6.79288 6.27147C6.92596 6.97951 6.57993 7.68105 5.95781 8.00187L4.69134 8.68234C5.51926 10.5283 7.1139 12.0061 9.00187 12.6823L9.68234 11.4159C10.0032 10.7937 10.7047 10.4477 11.4127 10.5808L14.8486 11.2344C15.3308 11.3148 15.6842 11.732 15.6842 12.2208V14.3737C15.6842 14.926 15.2365 15.3737 14.6842 15.3737C8.24965 15.3737 3 10.1241 3 3.68947C3 3.13719 3.44772 2.68947 4 2.68947H6.15287C6.64171 2.68947 7.0589 3.04288 7.13927 3.52507L7.79288 6.96094C7.92596 7.66898 7.57993 8.37052 6.95781 8.69134L5.69134 9.37181C6.51926 11.2178 8.1139 12.6956 10.0019 13.3718L10.6823 12.1054C11.0032 11.4832 11.7047 11.1372 12.4127 11.2703L15.8486 11.9239C16.3308 12.0042 16.6842 12.4214 16.6842 12.9103V15.0631C16.6842 15.6154 16.2365 16.0631 15.6842 16.0631C7.7001 16.0631 1.5 9.86305 1.5 1.87891C1.5 1.32663 1.94772 0.878906 2.5 0.878906H4.65287C5.14171 0.878906 5.5589 1.23232 5.63927 1.71451L6.29288 5.15037C6.42596 5.85841 6.07993 6.55995 5.45781 6.88078L4.19134 7.56125C4.19134 7.56125 4.19134 7.56125 4.19134 7.56125Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <input type="text" id="numberInput" placeholder="Enter your number here..." class="number-input"
+                autocomplete="off" />
+            </div>
+            <button id="sendButton" class="primary-button">
+              <span class="button-text">Send to NFC Device</span>
+              <svg class="button-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Status Messages -->
+          <div id="spinner" class="status-message spinner-message">
+            <div class="spinner"></div>
+            <span>Sending to NFC device...</span>
+          </div>
+
+          <div id="successMessage" class="status-message success-message">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>Number saved successfully!</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stored Number Card -->
+      <section class="stored-section">
+        <div class="stored-card">
+          <div class="stored-header">
+            <div class="stored-info">
+              <h3>Current Stored Number</h3>
+              <p class="stored-label">Last saved number</p>
+            </div>
+            <div class="status-indicator" id="statusIndicator"></div>
+          </div>
+
+          <div class="stored-content">
+            <div class="stored-number-display">
+              <span class="number-label">Number:</span>
+              <span id="storedNumber" class="number-value">None</span>
+            </div>
+
+            <button id="eraseButton" class="secondary-button">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.5 4.5L4.5 13.5M4.5 4.5L13.5 13.5" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>Clear Number</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- NFC Status Card -->
+      <section class="status-section">
+        <div class="status-card">
+          <p id="nfcStatus" class="nfc-status-text">
+            <span class="status-loading">Checking NFC support...</span>
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 NFC Number Sender. Developed by Jerry</p>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Privacy</a>
+        <span class="footer-separator">•</span>
+        <a href="#" class="footer-link">Terms</a>
+        <span class="footer-separator">•</span>
+        <a href="#" class="footer-link">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load script.js AFTER CryptoJS -->
+  <script src="./script.js"></script>
+</body>
+
+</html>
